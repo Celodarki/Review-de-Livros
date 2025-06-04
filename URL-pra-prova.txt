@@ -1,0 +1,137 @@
+-------------------------------------------------------------------------------
+Listar reviews de um livro
+
+GET /api/books/1/reviews
+
+{
+    "data": {
+        "id": 1,
+        "title": "Dom Casmurro",
+        "reviews": [
+            {
+                "id": 1,
+                "rating": 5,
+                "text": "Obra-prima da literatura brasileira",
+                "user": {
+                    "id": 1,
+                    "name": "João Silva"
+                }
+            }
+        ]
+    }
+}
+
+-------------------------------------------------------------------------------
+ Listar livros com detalhes completos
+
+GET /api/books/with-details/all
+
+{
+    "data": [
+        {
+            "id": 1,
+            "title": "Dom Casmurro",
+            "author": {
+                "id": 1,
+                "name": "Machado de Assis"
+            },
+            "genres": [
+                {"id": 1, "name": "Romance"},
+                {"id": 2, "name": "Clássico"}
+            ],
+            "reviews": [
+                {
+                    "id": 1,
+                    "rating": 5,
+                    "user": {"id": 1, "name": "João Silva"}
+                }
+            ]
+        }
+    ]
+}
+
+-------------------------------------------------------------------------------
+
+Listar livros de um autor
+GET /api/authors/1/books
+
+{
+    "data": {
+        "id": 1,
+        "name": "Machado de Assis",
+        "books": [
+            {
+                "id": 1,
+                "title": "Dom Casmurro",
+                "genres": [
+                    {"id": 1, "name": "Romance"}
+                ]
+            }
+        ]
+    }
+}
+
+
+-------------------------------------------------------------------------------
+
+Listar reviews de um usuário
+GET /api/users/1/reviews
+{
+    "data": {
+        "id": 1,
+        "name": "João Silva",
+        "reviews": [
+            {
+                "id": 1,
+                "rating": 5,
+                "book": {
+                    "id": 1,
+                    "title": "Dom Casmurro"
+                }
+            }
+        ]
+    }
+}
+
+-------------------------------------------------------------------------------
+
+Listar livros de um gênero
+GET /api/genres/1/books
+
+{
+    "data": {
+        "id": 1,
+        "name": "Romance",
+        "books": [
+            {
+                "id": 1,
+                "title": "Dom Casmurro",
+                "author": {
+                    "id": 1,
+                    "name": "Machado de Assis"
+                }
+            }
+        ]
+    }
+}
+
+-------------------------------------------------------------------------------
+
+Listar gêneros com seus livros
+GET /api/genres/with-books/all
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Romance",
+            "books": [
+                {"id": 1, "title": "Dom Casmurro"}
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Ficção Científica",
+            "books": []
+        }
+    ]
+}
